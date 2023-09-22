@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    "target": "ES5",
+    "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      // 设置对应的别名
+      "@src/*": ["./src/*"]
+    },
+    "types": ["vitest/globals"],
+    "declaration": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"]
+}

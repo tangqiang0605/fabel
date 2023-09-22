@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  // onSave:保存的时候进行校验|onType:输入的时候就进行lint
+  "eslint.run": "onSave",
+  // 假如你想保存的时候帮你修复错误，则可以添加如下提示，但是因为本人想自己养成好的编码习惯，所以就不采用保存时修复了
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
