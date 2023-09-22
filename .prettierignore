@@ -4,3 +4,5 @@ dist
 **/*.svg
 **/*.sh
 pnpm-lock.yaml
+*.md
+text

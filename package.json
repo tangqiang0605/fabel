@@ -21,9 +21,6 @@
     ],
     "*.{cjs,json}": [
       "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
     ]
   },
   "config": {
