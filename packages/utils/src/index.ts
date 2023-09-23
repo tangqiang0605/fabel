@@ -27,13 +27,24 @@ export const isFunction = (param: any): param is Function => {
     typeof param.item !== "function"
   )
 }
+// 处理异常
+export function handleErr(error: Error, cb?: Function) {
+  if (error.name == "GetNewStrError") {
+    // continue;
+    // report.notUploaded++
+    cb && isFunction(cb) && cb()
+    // todo,调用report的自定义函数更新report的数据
+  } else {
+    throw error
+  }
+}
 
 /**
  * 判断图片是否存在云端
  * @param {*} requestUrl
  * @returns
  */
-export function isExistRemote(requestUrl: string) {
+export function isExistRemote(requestUrl: string): Promise<boolean> {
   return new Promise((resolve, reject) => {
     // 解析URL
     const uri = new url.URL(requestUrl)
@@ -53,7 +64,7 @@ export function isExistRemote(requestUrl: string) {
     const req = https.request(options, (res) => {
       // 获取响应头中的Content-Type字段
       const contentType = res.headers["content-type"]
-      resolve(contentType?.includes("image"))
+      resolve(Boolean(contentType?.includes("image")))
     })
 
     // 处理请求错误
